@@ -1,0 +1,22 @@
+name: DinoWorldCB
+version: 1.0
+author: CalledCracki
+main: at.Cracki.DinoWorld.Main.DW
+
+commands:
+  dinocoins:
+    aliases:
+      - coins
+      - money
+      - dc
+    description: Kontostand anzeigen und verändern.
+  gamemode:
+    aliases:
+      - gm
+    description: Ändert deinen Spielmodus.
+  enderchest:
+    aliases:
+      - ec
+    description: Öffnet deine EC oder die eines anderen.
+  invsee:
+    description: Öffnet das Inventar eines anderen Spielers.
