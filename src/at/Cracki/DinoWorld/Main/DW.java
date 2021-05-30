@@ -2,9 +2,8 @@ package at.Cracki.DinoWorld.Main;
 
 import at.Cracki.DinoWorld.Commands.*;
 import at.Cracki.DinoWorld.Events.EventClass;
-import at.Cracki.DinoWorld.MySQL.DataManager;
-import at.Cracki.DinoWorld.MySQL.MoneyAPI;
 import at.Cracki.DinoWorld.MySQL.MySQL;
+import at.Cracki.DinoWorld.MySQL.MySQLFile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -24,20 +23,22 @@ public class DW extends JavaPlugin {
     //Liste mit Spielern, die im Fly Modus sind. #abgehoben.
     public static ArrayList<Player> fly = new ArrayList<>();
 
-    public DataManager data;
     public static DW plugin;
 
     @Override
     public void onEnable() {
         plugin = this;
         init(Bukkit.getPluginManager());
-        this.data = new DataManager(this);
-        data.reloadConfig();
 
-        MySQL.setStandards(data);
-        MySQL.readData(data);
+        Bukkit.getConsoleSender().sendMessage(pre + ChatColor.GREEN + "DinoWorld System " + ver + " wurde geladen!");
 
-        System.out.println(pre + ChatColor.GREEN + "DinoWorld System " + ver + " wurde geladen!");
+        MySQLFile file = new MySQLFile();
+        file.readData();
+        file.setStandard();
+
+        MySQL.connect();
+        MySQL.createTable();
+
     }
 
     //initialisiert den PluginManager und die Commands.
@@ -52,7 +53,7 @@ public class DW extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println(pre + ChatColor.RED + "DinoWorld System" + ver + "  wurde gestoppt!");
+        Bukkit.getConsoleSender().sendMessage(pre + ChatColor.RED + "DinoWorld System " + ver + "  wurde gestoppt!");
     }
 
     public static DW getPlugin() {

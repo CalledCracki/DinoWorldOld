@@ -10,7 +10,7 @@ public class MoneyAPI {
             PreparedStatement st = MySQL.con.prepareStatement("SELECT money FROM moneyTable WHERE UUID = ?");
             st.setString(1, uuid);
             ResultSet rs = st.executeQuery();
-            if (rs.next())
+            if(rs.next())
                 return rs.getInt("money");
         } catch (SQLException e) {
             e.printStackTrace();
