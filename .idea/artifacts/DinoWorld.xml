@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DinoWorld">
+    <output-path>$PROJECT_DIR$/../1.16 Dev Server/plugins</output-path>
+    <root id="archive" name="DinoWorld.jar">
+      <element id="module-output" name="DinoWorld" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>

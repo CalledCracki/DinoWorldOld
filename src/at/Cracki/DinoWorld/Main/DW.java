@@ -1,7 +1,9 @@
 package at.Cracki.DinoWorld.Main;
 
+import at.Cracki.DinoWorld.ChestOpening.Listeners.ChestCheck;
 import at.Cracki.DinoWorld.Commands.*;
 import at.Cracki.DinoWorld.Events.EventClass;
+import at.Cracki.DinoWorld.Events.InventoryClicks;
 import at.Cracki.DinoWorld.MySQL.MySQL;
 import at.Cracki.DinoWorld.MySQL.MySQLFile;
 import org.bukkit.Bukkit;
@@ -44,6 +46,9 @@ public class DW extends JavaPlugin {
     //initialisiert den PluginManager und die Commands.
     private void init(PluginManager pluginManager) {
         pluginManager.registerEvents(new EventClass(), this);
+        pluginManager.registerEvents(new ChestCheck(), this);
+        pluginManager.registerEvents(new InventoryClicks(), this);
+        //pluginManager.registerEvents(new BreakingEvent(), this);
 
         getCommand("dinocoins").setExecutor(new DCCommand());
         getCommand("gamemode").setExecutor(new GMCommand());

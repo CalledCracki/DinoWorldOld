@@ -1,5 +1,6 @@
 package at.Cracki.DinoWorld.Events;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -19,11 +20,10 @@ public class EventClass implements Listener {
     }
 
     public void onItemDrop(PlayerDropItemEvent event) {
-        if(event.getPlayer().hasPermission("dw.team")) {
-            event.setCancelled(false);
-        } else
-            event.setCancelled(true);
-            return;
+        Player player = (event.getPlayer());
+        if(event.getItemDrop().getType().equals(Material.BEACON)) {
+
+        }
     }
     public void onBlockPlace(BlockPlaceEvent event) {
         if(event.getPlayer().hasPermission("dw.team")) {

@@ -2,6 +2,7 @@ name: DinoWorldCB
 version: 1.0
 author: CalledCracki
 main: at.Cracki.DinoWorld.Main.DW
+api-version: 1.16
 
 commands:
   dinocoins:
